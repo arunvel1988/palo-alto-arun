@@ -1,1 +1,17 @@
+###################################################
 -cpu host
+
+###################################################
+on pa vm
+configure
+set deviceconfig system type static 
+set deviceconfig system ip-address 192.168.0.1 netmask 255.255.255.0 
+commit
+###################################################
+
+on web term firefox
+sudo ip addr add 192.168.0.250/24 dev eth0
+sudo ip link set eth0 up
+sudo ip route add default via 192.168.0.1
+###################################################
+
