@@ -14,4 +14,16 @@ sudo ip addr add 192.168.0.250/24 dev eth0
 sudo ip link set eth0 up
 sudo ip route add default via 192.168.0.1
 ###################################################
+sudo apt update
+sudo apt install -y libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+sudo systemctl enable --now libvirtd
 
+
+sudo virsh net-start default
+sudo virsh net-autostart default
+
+ip a | grep virbr0
+
+
+
+###################################################
